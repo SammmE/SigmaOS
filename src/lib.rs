@@ -6,8 +6,13 @@
 
 use core::panic::PanicInfo;
 
+pub mod interrupts;
 pub mod serial;
 pub mod vga_buffer;
+
+pub fn init() {
+    interrupts::init_idt();
+}
 
 pub trait Testable {
     fn run(&self) -> ();
