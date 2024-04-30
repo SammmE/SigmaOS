@@ -14,15 +14,11 @@ pub extern "C" fn _start() -> ! {
 
     sigmaos::init();
 
-    unsafe {
-        *(0xdeadbeef as *mut u8) = 42;
-    };
-
     #[cfg(test)]
     test_main();
 
     println!("It did not crash!");
-    loop {}
+    sigmaos::hlt_loop();
 }
 
 /// This function is called on panic.
@@ -30,7 +26,7 @@ pub extern "C" fn _start() -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    sigmaos::hlt_loop();
 }
 
 #[cfg(test)]
