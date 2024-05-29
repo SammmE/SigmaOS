@@ -27,7 +27,6 @@ fn kernel_main(boot_info: &'static BootInfo) -> ! {
     #[cfg(test)]
     test_main();
 
-    println!("It did not crash!");
     sigmaos::hlt_loop();
 }
 
