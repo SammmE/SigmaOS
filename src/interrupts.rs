@@ -118,3 +118,4 @@ extern "x86-interrupt" fn page_fault_handler(
     println!("{:#?}", stack_frame);
     hlt_loop();
 }
+
